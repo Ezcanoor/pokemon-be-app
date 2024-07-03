@@ -1,7 +1,6 @@
 import Sequelize, { Model } from "sequelize";
-import bcrypt from "bcryptjs";
 
-class User extends Model {
+class Pokemon extends Model {
   static init(sequelize) {
     super.init(
       {
@@ -11,9 +10,12 @@ class User extends Model {
           primaryKey: true
         },
         name: Sequelize.STRING,
-        email: Sequelize.STRING,
-        password: Sequelize.VIRTUAL, //When it is VIRTUAL it does not exist in the database
-        password_hash: Sequelize.STRING,
+        status: Sequelize.STRING,
+        userId: {
+          type:Sequelize.INTEGER,
+          field: 'user_id'
+        },
+        seq: Sequelize.INTEGER
       },
       {
         sequelize,
@@ -25,21 +27,20 @@ class User extends Model {
       }
     );
 
-    this.addHook("beforeSave", async (user) => {
-      if (user.password) {
-        user.password_hash = await bcrypt.hash(user.password, 8);
-      }
+    this.addHook("beforeSave", async () => {
+      
     });
 
     return this;
   }
 
   static associate(models) {
-    // this.belongsToMany(models.Address, {
-    //   through: "UserAddress",
-    //   foreignKey: "userId",
+    // this.belongsTo(models.User, {
+    //   foreignKey: "user_id",
     // });
-    // this.hasMany(models.Pokemon)
+    this.belongsTo(models.User, {
+      foreignKey: 'userId',
+    });
   }
 
   checkPassword(password) {
@@ -47,4 +48,6 @@ class User extends Model {
   }
 }
 
-export default User;
+export default Pokemon;
+
+

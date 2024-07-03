@@ -1,38 +1,4 @@
-# express-sequelize-boilerplate
 
-![Express.js](https://img.shields.io/badge/express.js-%23404d59.svg?style=for-the-badge&logo=express&logoColor=%2361DAFB)
-![Sequelize](https://img.shields.io/badge/Sequelize-52B0E7?style=for-the-badge&logo=Sequelize&logoColor=white)
-
-This is a simple boilerplate for building REST APIs in Node.js using Express. Intended for use with PostgreSQL using Sequelize ORM.
-
-
-## Getting Started
-
-Clone the repository
-
-```bash
-git clone https://github.com/gadfaria/express-sequelize-boilerplate.git
-```
-
-Enter into the directory
-```bash
-cd express-sequelize-boilerplate/
-```
-
-Install the dependencies
-```bash
-yarn
-```
-
-Set the environment variables
-```bash
-cp .env.example .env
-```
-
-Running the boilerplate:
-```bash
-yarn dev
-```
 
 ## Configuration
 
@@ -49,9 +15,7 @@ Variables for the environment
 | DB_USER | Database username |
 | DB_PASS | Database password |
 | DB_NAME | Database name |
-| AWS_KEYID | Access key ID |
-| AWS_SECRETKEY | User secret key |
-| AWS_BUCKET | Bucket name |
+
 
 ## Commands for sequelize 
 ```bash
@@ -69,6 +33,27 @@ yarn sequelize db:migrate:undo:all
 
 # Load seeders
 yarn sequelize db:seed:all
+
+Here is the mini project for pokemon apps. I already prepare the data seed and migration, all you need to do is 
+ - create env files based on env.example
+ - create database ( sequelize db:create )
+ - migrate database ( sequelize db:migrate:all )
+ - seed database ( sequelize db:seed:all )
+ - dont forget to install all packages and dependencies
+
+for default username and password you can use dangko@mail.com for email and nahasihbeutkitu for password and the jwtsecret is inirahasia, of course you have to run seed command first.
+I also attached the postman docs in json format in case you want to try it.
+There should be 3 REST API delivered as a backend service:
+• REST API to return probability is 50% when catching Pokemon.
+• REST API to release pokemon. This API should return a prime number, if the number returned by the API
+  is not a prime number, then release will fail and vice versa.
+• REST API to rename pokemon. This function should return a combination of first name assigned combined
+  with Fibonacci sequence, e.g.:
+  • First name assigned is “Mighty Pikachu”, first time renamed should be: “Mighty Pikachu-0”
+  • Second time renamed should be: “Mighty Pikachu-1”
+  • Third time renamed should be: “Mighty Pikachu-1”
+  • Fourth time renamed should be: “Mighty Pikachu-2”, and so on.
+
 ```
 
 

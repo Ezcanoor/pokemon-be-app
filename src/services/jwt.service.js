@@ -60,7 +60,7 @@ const JwtService = {
               throw err;
           });
 
-          console.log(decoded);
+
           if (err != null) throw err;
           return decoded.payload;
         }

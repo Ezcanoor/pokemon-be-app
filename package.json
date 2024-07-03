@@ -22,6 +22,11 @@
     "yup": "^1.0.0"
   },
   "devDependencies": {
+    "@babel/core": "^7.24.7",
+    "@babel/register": "^7.24.6",
+    "babel-core": "^6.24.0",
+    "babel-plugin-add-module-exports": "^0.2.1",
+    "babel-preset-es2015": "^6.24.0",
     "nodemon": "^2.0.18",
     "sequelize-cli": "^6.4.1"
   }
